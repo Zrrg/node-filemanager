@@ -1,24 +1,23 @@
-import fs from 'fs'
+import fs from 'fs/promises'
+import {dirname, join} from 'path'
+import { fileURLToPath } from 'url';
+import { FS_ERROR } from '../../variables/global.js';
 
-const folder = "./src/fs/files/";
-const filename = "fresh.txt";
-const content = "I am fresh and young";
+//const freshfile = "fresh.txt";
+//const content = "I am fresh and young";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const create = async () => {
-    fs.open(folder + filename, "wx", (err, descriptor) => {                  // wx flag creates and opens, throws an error if exist
-        if (err) {
-            console.log("FS operation failed", err);
-        } else {
-           //console.log(descriptor);
-            fs.write(descriptor, content, (err, bytes) => {          
-                if (err) {
-                    console.error("FS operation failed", err);
-                } else {
-                    console.log("File created");
-                }
-            })
-        }
-    })
+const create = async (filename, content) => {
+
+    const filePath = join(__dirname, filename)
+
+    try {
+        await fs.writeFile(filePath, content, {flag: 'wx'});
+    } catch (error) {
+        throw new Error(FS_ERROR)
+    }
+
 };
 
-await create();
+//await create(freshfile, content);

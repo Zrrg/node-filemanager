@@ -1,18 +1,25 @@
-import fs from 'fs'
- const path = './src/fs/files/'
+
+import {readdir, constants} from 'fs/promises'
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+import { FILES_FOLDER } from '../../variables/global.js';
+
+
+const __fileName = fileURLToPath(import.meta.url);
+const __dirname = dirname(__fileName);
 
 
 const list = async () => {
-    fs.readdir(path, (err,files) =>{
-        if (err) {
+    const folderPath = join(__dirname, FILES_FOLDER);
+    await access(folderPath, constants.F_OK);
+
+        if (!access) {
             console.error('FS operation failed', err)
         } else {
-            files.forEach(function(file) {
-                console.log(file)
-            })
-            }
-        }
-    )
-};
+            const files = await readdir(folderPath);
+            console.log(files)
+         }
+     }
+
 
 await list();

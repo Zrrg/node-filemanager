@@ -87,3 +87,160 @@ cat arisu.txt
 cat arisu.txt
 rn arisu.txt alice.txt
 rename file.txt file.log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+touch file
+rm file
+touch file
+touch "file file"
+cat file file
+cat "file file"
+rn "file file" "file space"
+rm "file space"
+rm "file file"
+
+
+
+ls
+rm file
+touch "file"
+ls
+rm "file"
+mkdir folder
+rm folder

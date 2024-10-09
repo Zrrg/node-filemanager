@@ -4,23 +4,24 @@ import {
   EXIT_MESSAGE2,
   INVALID_INPUT,
   GENERIC_ERROR,
-   FS_ERROR
+  FS_ERROR,
 } from "../variables/global.js";
 import { create } from "./../fs/create.js";
 import { list } from "./../fs/list.js";
 import { logOutput } from "./logOutput.js";
 import { homedir } from "os";
 import path from "path";
-import { access } from "fs";
+import { access, mkdir } from "fs";
 import { readByStream } from "./../streams/read.js";
-import { remove } from './../fs/delete.js'
-import { rename } from './../fs/rename.js'
+import { remove } from "./../fs/delete.js";
+import { rename } from "./../fs/rename.js";
+import { makeDirectory } from "./../fs/mkdir.js";
 
 const { stdin, stdout } = process;
 
 var __currentdir = homedir();
 
-const getUsername = () => {
+const getUsername = async () => {
   for (const i = 2; i < process.argv.length; i++) {
     const arg = process.argv[i];
     const keyValue = arg.split("=");
@@ -33,24 +34,40 @@ const getUsername = () => {
 };
 
 const getQuotedValue = async (input) => {
-  const regex = /"(.*?)"/;
-  const match = input.match(regex);
+  const qr = /"(.*?)"/g;
+  const matches = Array.from(input.matchAll(qr));
 
-  if (match) {
-    return match[1];
-  } else return "";
+  if (matches.length > 0) {
+    return matches.map((match) => match[1]); // extract values from obj to arr
+  } else return [];
 };
 
 const prompt = async (input) => {
   const commandArgs = input.trim().split(" ");
   const command = commandArgs[0];
-  const quotedValue = await getQuotedValue(input);
+  const quotedValues = await getQuotedValue(input);
+  //console.log(`quotedValues  : ${quotedValues}`);
 
+  if (quotedValues.length > 0) {
+    commandArgs[1] = quotedValues[0];
+    if (quotedValues.length > 1) commandArgs[2] = quotedValues[1];
+  }
   switch (command) {
     case "ls":
     case "list":
     case "dir":
       await list(__currentdir);
+      currentDirectory();
+      break;
+
+    case "mkdir":
+      var newDir = " ";
+      if (path.isAbsolute(commandArgs[1])) {
+        newDir = path.resolve(commandArgs[1]);
+      } else {
+       newDir = path.join(__currentdir, commandArgs[1]);
+      }
+      await makeDirectory(newDir);
       currentDirectory();
       break;
 
@@ -67,11 +84,9 @@ const prompt = async (input) => {
 
         if (path.isAbsolute(commandArgs[1])) {
           cd = path.resolve(commandArgs[1]);
-        } else {
-          if (quotedValue.length > 0) {
-            cd = path.join(__currentdir, quotedValue);
-          } else cd = path.join(__currentdir, commandArgs[1]);
-        }
+        } else
+          cd = path.join(__currentdir, commandArgs[1]);
+        
 
         access(cd, (err) => {
           if (err) {
@@ -87,62 +102,61 @@ const prompt = async (input) => {
     case "add":
     case "touch":
     case "write":
-    case  "w":
-        try {
-      const addPath = path.join(__currentdir, commandArgs[1]);
-      var content = "";
-      if (quotedValue.length > 0) {
-        content = quotedValue;
+    case "w":
+      try {
+        const addPath = path.join(__currentdir, commandArgs[1]);
+        var content = "";
+        if (commandArgs.length > 2) content = commandArgs[2];
+
+        await create(addPath, content);
+      } catch (err) {
+        console.error(err);
       }
-      await create(addPath, content);
-    } catch (err) {
-        console.error(INVALID_INPUT);
-    }
+      currentDirectory();
       break;
 
     case "cat":
     case "read":
       const catPath = path.join(__currentdir, commandArgs[1]);
-      stdout.write('\n')
+      stdout.write("\n");
       await readByStream(catPath);
+      currentDirectory();
       break;
-
-
 
     case "remove":
     case "delete":
     case "del":
     case "rm":
-        try {
-        const remPath = path.join(__currentdir, commandArgs[1])
-        await remove(remPath)
-        } catch (err) {
-            console.error(err);
-        }
-        break;
-    
+      try {
+        const remPath = path.join(__currentdir, commandArgs[1]);
+        await remove(remPath);
+      } catch (err) {
+        console.error(err);
+      }
+      currentDirectory();
+      break;
+
     case "rename":
-        case "rn":
-            //todo rn(commandArgs[1], commandArgs[2])
-            try {
-                const oldPath = path.join(__currentdir, commandArgs[1])
-                const newPath = path.join(__currentdir, commandArgs[2])
-                await rename(oldPath, newPath)
-            } catch (err) {
-                console.error(err);
-            }
-        break;
+    case "rn":
+      try {
+        const oldPath = path.join(__currentdir, commandArgs[1]);
+        const newPath = path.join(__currentdir, commandArgs[2]);
+        await rename(oldPath, newPath);
+      } catch (err) {
+        console.error(err);
+      }
+      currentDirectory();
+      break;
 
     default:
       logOutput(INVALID_INPUT, command);
       break;
 
-
-      case ".exit":
-        case ".exit":
-        case "quit":
-        case "q!":
-          detect_exit();
+    case ".exit":
+    case ".exit":
+    case "quit":
+    case "q!":
+      detect_exit();
   }
   stdout.write("(づ ᴗ _ᴗ)づ>>> ");
 };
@@ -165,7 +179,7 @@ const detect_exit = async () => {
   process.exit(0);
 };
 
-const username = getUsername();
+const username = await getUsername();
 console.log(PROMPT_MESSAGE, username + "!");
 currentDirectory();
 

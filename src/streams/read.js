@@ -1,8 +1,9 @@
 import fs, { ReadStream } from 'fs'
+import { STREAM_ERRROR } from '../variables/global.js';
 
-const file = 'src/streams/files/fileToRead.txt'
+//const file = 'src/streams/files/fileToRead.txt'
 
-const read = async () => {
+export const readByStream = async (file) => {
 
     const readStream = fs.createReadStream(file);
 
@@ -16,9 +17,9 @@ const read = async () => {
     })
 
     readStream.on('error', (err) =>{
-        console.error("Stream operation failed", err);
+        console.error(STREAM_ERRROR, err);
     });
 
 };
 
-await read();
+//await read(file);

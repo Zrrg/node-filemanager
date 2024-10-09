@@ -1,28 +1,26 @@
 import fs from 'fs'
-const file = 'src/streams/files/fileToWrite.txt'
+import {GENERIC_ERROR, STREAM_ERRROR} from './../variables/global.js'
 
-const write = async () => {
+export const writeBySteam = async (destination, args) => {
 
-    const writeStream = fs.createWriteStream(file);
-
+    const writableStream = fs.createWriteStream(destination, args);
     let data = '';
 
-
     process.stdin.on('data', (chunk) => {
-        writeStream.write(chunk);
+        writableStream.write(chunk);
     });
 
     process.stdin.on('end',  () => {
-        writeStream.end();
+        writableStream.end();
     });
 
-    writeStream.on('error', (err) => {
-        console.error("Stream operation failed", err);
+    process.stdin.on('error',  () => {
+        throw new Error(GENERIC_ERROR)
+    });
+
+    writableStream.on('error', (err) => {
+        throw new Error(STREAM_ERRROR);
     } )
 
- 
 
 };
-
-
-await write();

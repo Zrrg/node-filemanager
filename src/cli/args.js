@@ -1,4 +1,4 @@
-const parseArgs = () => {
+export const parseArgs = () => {
     const parsedArgs = process.argv.slice(2);
     const output = {};
 
@@ -15,10 +15,10 @@ const parseArgs = () => {
 
 
     const result = Object.entries(output)
-                         .map(([key, value]) => `${key} is ${value}`);
-    console.log(result.join(', '));
+    //                      .map(([key, value]) => `${key}=${value}`);
+    return result;
 
     
 };
 
-parseArgs();
+//parseArgs();

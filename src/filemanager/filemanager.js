@@ -1,0 +1,173 @@
+import {
+  PROMPT_MESSAGE,
+  EXIT_MESSAGE1,
+  EXIT_MESSAGE2,
+  INVALID_INPUT,
+  GENERIC_ERROR,
+   FS_ERROR
+} from "../variables/global.js";
+import { create } from "./../fs/create.js";
+import { list } from "./../fs/list.js";
+import { logOutput } from "./logOutput.js";
+import { homedir } from "os";
+import path from "path";
+import { access } from "fs";
+import { readByStream } from "./../streams/read.js";
+import { remove } from './../fs/delete.js'
+import { rename } from './../fs/rename.js'
+
+const { stdin, stdout } = process;
+
+var __currentdir = homedir();
+
+const getUsername = () => {
+  for (const i = 2; i < process.argv.length; i++) {
+    const arg = process.argv[i];
+    const keyValue = arg.split("=");
+    const key = keyValue[0];
+    const value = keyValue[1];
+    if (key === "--username") {
+      return value;
+    } else return "user";
+  }
+};
+
+const getQuotedValue = async (input) => {
+  const regex = /"(.*?)"/;
+  const match = input.match(regex);
+
+  if (match) {
+    return match[1];
+  } else return "";
+};
+
+const prompt = async (input) => {
+  const commandArgs = input.trim().split(" ");
+  const command = commandArgs[0];
+  const quotedValue = await getQuotedValue(input);
+
+  switch (command) {
+    case "ls":
+    case "list":
+    case "dir":
+      await list(__currentdir);
+      currentDirectory();
+      break;
+
+    case "up":
+    case "back":
+      __currentdir = path.join(__currentdir, "..");
+      currentDirectory();
+
+      break;
+
+    case "cd":
+      try {
+        var cd = " ";
+
+        if (path.isAbsolute(commandArgs[1])) {
+          cd = path.resolve(commandArgs[1]);
+        } else {
+          if (quotedValue.length > 0) {
+            cd = path.join(__currentdir, quotedValue);
+          } else cd = path.join(__currentdir, commandArgs[1]);
+        }
+
+        access(cd, (err) => {
+          if (err) {
+            console.log(`${commandArgs[1]} is non-existant`);
+          } else __currentdir = cd;
+          currentDirectory();
+        });
+      } catch (err) {
+        console.error(FS_ERROR, err);
+      }
+      break;
+
+    case "add":
+    case "touch":
+    case "write":
+    case  "w":
+        try {
+      const addPath = path.join(__currentdir, commandArgs[1]);
+      var content = "";
+      if (quotedValue.length > 0) {
+        content = quotedValue;
+      }
+      await create(addPath, content);
+    } catch (err) {
+        console.error(INVALID_INPUT);
+    }
+      break;
+
+    case "cat":
+    case "read":
+      const catPath = path.join(__currentdir, commandArgs[1]);
+      stdout.write('\n')
+      await readByStream(catPath);
+      break;
+
+
+
+    case "remove":
+    case "delete":
+    case "del":
+    case "rm":
+        try {
+        const remPath = path.join(__currentdir, commandArgs[1])
+        await remove(remPath)
+        } catch (err) {
+            console.error(err);
+        }
+        break;
+    
+    case "rename":
+        case "rn":
+            //todo rn(commandArgs[1], commandArgs[2])
+            try {
+                const oldPath = path.join(__currentdir, commandArgs[1])
+                const newPath = path.join(__currentdir, commandArgs[2])
+                await rename(oldPath, newPath)
+            } catch (err) {
+                console.error(err);
+            }
+        break;
+
+    default:
+      logOutput(INVALID_INPUT, command);
+      break;
+
+
+      case ".exit":
+        case ".exit":
+        case "quit":
+        case "q!":
+          detect_exit();
+  }
+  stdout.write("(づ ᴗ _ᴗ)づ>>> ");
+};
+
+const currentDirectory = async () => {
+  console.log("You are currently in", __currentdir);
+};
+
+const waitForInput = async () => {
+  stdin.on("data", (data) => {
+    prompt(data.toString());
+  });
+  process.on("SIGINT", () => {
+    detect_exit();
+  });
+};
+
+const detect_exit = async () => {
+  console.log(EXIT_MESSAGE1 + username + EXIT_MESSAGE2);
+  process.exit(0);
+};
+
+const username = getUsername();
+console.log(PROMPT_MESSAGE, username + "!");
+currentDirectory();
+
+stdout.write("ヾ(・ω・*)>>> ");
+waitForInput();

@@ -1,12 +1,10 @@
 
-import {readdir, constants} from 'fs/promises'
+import {readdir} from 'fs/promises'
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { FILES_FOLDER, FS_ERROR } from '../variables/global.js';
-import { logOutput } from '../filemanager/logOutput.js';
+import {  FS_ERROR } from '../variables/global.js';
 import fs from 'fs';
 import util from 'util';
-import {checkAccess} from './access.js'
 
 
 const __fileName = fileURLToPath(import.meta.url);

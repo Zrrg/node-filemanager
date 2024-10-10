@@ -279,3 +279,443 @@ cd ..
 cd ..
 cd ..
 cd ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+touch file
+rm file
+touch file
+cp file file2
+rm file2
+rim file
+rm file
+rm file
+
+
+
+rm a
+rm a
+rm a
+rm b
+rm b
+rm b
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd bruh
+cd bruh
+cd bruh
+touch ababa
+touch ababa
+touch ababa
+ls
+ls
+ls
+cp ababa bebebe
+cp ababa bebebe
+cp ababa bebebe
+cd ..
+ls
+cd bruh
+ls
+cp ababa bebebe
+ls
+cd ababa c:\bebe
+cd ..
+ls
+cat bebe
+cd ..
+cat bebe
+cd bruh
+ls
+cp fsadf
+cp gfdg fdg
+cp "" ""
+ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,6 @@
 import fs from 'fs'
 import { FS_ERROR } from '../variables/global.js';
 import { checkAccess } from '../fs/access.js'
-const path = './src/fs/files/'
-const oldname = 'wrongFilename.txt'
-const newname = 'properFilename.md'
 
 
 export const rename = async (oldFilePath, newFilePath) => {

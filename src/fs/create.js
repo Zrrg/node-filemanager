@@ -1,23 +1,12 @@
-import fs from 'fs/promises'
-import {dirname, join} from 'path'
-import { fileURLToPath } from 'url';
+import fs from 'fs'
 import { FS_ERROR } from '../variables/global.js';
 
-//const freshfile = "fresh.txt";
-//const content = "I am fresh and young";
-//const __filename = fileURLToPath(import.meta.url);
-//const __dirname = dirname(__filename);
 
 export const create = async (filePath, content) => {
+ 
+    fs.promises.writeFile(filePath, content, {flag: 'wx'})
+        .then( () => console.log('File has been created.'))
+        .catch( (error) => console.error(FS_ERROR, error))
 
-    //const filePath = join(__dirname, filename)
-
-    try {
-        await fs.writeFile(filePath, content, {flag: 'wx'});
-    } catch (error) {
-        console.error(FS_ERROR, error)
-    }
-
+    
 };
-
-//await create(freshfile, content);

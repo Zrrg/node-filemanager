@@ -8,16 +8,17 @@ import {
 } from "../variables/global.js";
 import { create } from "./../fs/create.js";
 import { list } from "./../fs/list.js";
-import { isFile } from "./../fs/isfile.js";
 
 import { logOutput } from "./logOutput.js";
 import { homedir } from "os";
 import path from "path";
 import { access, mkdir } from "fs";
 import { readByStream } from "./../streams/read.js";
-import { remove, removeDir } from "./../fs/delete.js";
 import { rename } from "./../fs/rename.js";
 import { makeDirectory } from "./../fs/mkdir.js";
+import { copy } from "../fs/copy.js";
+import { filemanagerCp } from "./cp.js";
+import { filemanagerRm } from "./rm.js";
 
 const { stdin, stdout } = process;
 
@@ -50,12 +51,10 @@ const prompt = async (input) => {
   const quotedValues = await getQuotedValue(input);
 
   if (quotedValues.length > 0) {
-    if (commandArgs[1].includes('"'))
-        commandArgs[1] = quotedValues[0];
-    else if (commandArgs[2].includes('"'))
-        commandArgs[2] = quotedValues[0];
+    if (commandArgs[1].includes('"')) commandArgs[1] = quotedValues[0];
+    else if (commandArgs[2].includes('"')) commandArgs[2] = quotedValues[0];
   }
-    if (quotedValues.length > 1 && commandArgs[2].includes('"')) {
+  if (quotedValues.length > 1 && commandArgs[2].includes('"')) {
     commandArgs[2] = quotedValues[1];
   }
 
@@ -63,6 +62,7 @@ const prompt = async (input) => {
     case "ls":
     case "list":
     case "dir":
+      stdout.write("\n");
       await list(__currentdir);
       currentDirectory();
       break;
@@ -72,7 +72,7 @@ const prompt = async (input) => {
       if (path.isAbsolute(commandArgs[1])) {
         newDir = path.resolve(commandArgs[1]);
       } else {
-       newDir = path.join(__currentdir, commandArgs[1]);
+        newDir = path.join(__currentdir, commandArgs[1]);
       }
       await makeDirectory(newDir);
       currentDirectory();
@@ -91,13 +91,11 @@ const prompt = async (input) => {
 
         if (path.isAbsolute(commandArgs[1])) {
           cd = path.resolve(commandArgs[1]);
-        } else
-          cd = path.join(__currentdir, commandArgs[1]);
-        
+        } else cd = path.join(__currentdir, commandArgs[1]);
 
         access(cd, (err) => {
           if (err) {
-            console.log(`${commandArgs[1]} is non-existant`);
+            console.log(`${commandArgs[1]} is non-existent`);
           } else __currentdir = cd;
           currentDirectory();
         });
@@ -111,8 +109,6 @@ const prompt = async (input) => {
     case "write":
     case "w":
       try {
-
-
         const addPath = path.join(__currentdir, commandArgs[1]);
         var content = "";
         if (commandArgs.length > 2) content = commandArgs[2];
@@ -136,27 +132,7 @@ const prompt = async (input) => {
     case "delete":
     case "del":
     case "rm":
-      try {
-        const remPath = path.join(__currentdir, commandArgs[1]);
-        if (await isFile(remPath)) {
-        await remove(remPath);
-        }
-        else 
-        await removeDir(remPath);
-      } catch (err) {
-        console.error(err);
-      }
-      currentDirectory();
-      break;
-
-
-    case "rmdir":
-      try {
-        const remPath = path.join(__currentdir, commandArgs[1]);
-        await removeDir(remPath);
-      } catch (err) {
-        console.error(err);
-      }
+      await filemanagerRm(__currentdir, commandArgs[1]);
       currentDirectory();
       break;
 
@@ -172,12 +148,27 @@ const prompt = async (input) => {
       currentDirectory();
       break;
 
+    case "cp":
+    case "copy":
+      await filemanagerCp(__currentdir, commandArgs[1], commandArgs[2]);
+
+      currentDirectory();
+      break;
+
+    case "mv":
+    case "move":
+    // todo check if copied then delete
+      await filemanagerCp(__currentdir, commandArgs[1], commandArgs[2]);
+      await filemanagerRm(__currentdir, commandArgs[1]);
+      currentDirectory();
+      break;
+
     default:
       logOutput(INVALID_INPUT, command);
       break;
 
     case ".exit":
-    case ".exit":
+    case "exit":
     case "quit":
     case "q!":
       detect_exit();
@@ -192,7 +183,6 @@ const waitForInput = async () => {
   stdin.on("data", (data) => {
     stdout.write("(づ ᴗ _ᴗ)づ>>> ");
     prompt(data.toString());
-
   });
   process.on("SIGINT", () => {
     detect_exit();

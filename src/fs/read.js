@@ -1,6 +1,4 @@
 import fs from 'fs'
-const path = './src/fs/files/'
-//const file = 'fileToRead.txt'
 
 export const read = async (source) => {
 
@@ -9,6 +7,3 @@ export const read = async (source) => {
         .catch((error) => console.error("FS Operation failed", error))
 
 }
-
-
-//await read(path + file);

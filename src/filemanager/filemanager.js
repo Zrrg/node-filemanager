@@ -48,12 +48,17 @@ const prompt = async (input) => {
   const commandArgs = input.trim().split(" ");
   const command = commandArgs[0];
   const quotedValues = await getQuotedValue(input);
-  //console.log(`quotedValues  : ${quotedValues}`);
 
   if (quotedValues.length > 0) {
-    commandArgs[1] = quotedValues[0];
-    if (quotedValues.length > 1) commandArgs[2] = quotedValues[1];
+    if (commandArgs[1].includes('"'))
+        commandArgs[1] = quotedValues[0];
+    else if (commandArgs[2].includes('"'))
+        commandArgs[2] = quotedValues[0];
   }
+    if (quotedValues.length > 1 && commandArgs[2].includes('"')) {
+    commandArgs[2] = quotedValues[1];
+  }
+
   switch (command) {
     case "ls":
     case "list":
@@ -106,6 +111,8 @@ const prompt = async (input) => {
     case "write":
     case "w":
       try {
+
+
         const addPath = path.join(__currentdir, commandArgs[1]);
         var content = "";
         if (commandArgs.length > 2) content = commandArgs[2];
@@ -175,7 +182,6 @@ const prompt = async (input) => {
     case "q!":
       detect_exit();
   }
-  await stdout.write("(づ ᴗ _ᴗ)づ>>> ");
 };
 
 const currentDirectory = async () => {
@@ -184,7 +190,9 @@ const currentDirectory = async () => {
 
 const waitForInput = async () => {
   stdin.on("data", (data) => {
+    stdout.write("(づ ᴗ _ᴗ)づ>>> ");
     prompt(data.toString());
+
   });
   process.on("SIGINT", () => {
     detect_exit();

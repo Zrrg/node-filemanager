@@ -253,3 +253,29 @@ ls
 ls
 cd "G:\Games"
 cd "G:\Games"
+ls
+rm file.txt
+add file.txt aaaa
+add "file text.txt"
+ls
+cd ..
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..

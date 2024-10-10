@@ -8,12 +8,14 @@ import {
 } from "../variables/global.js";
 import { create } from "./../fs/create.js";
 import { list } from "./../fs/list.js";
+import { isFile } from "./../fs/isfile.js";
+
 import { logOutput } from "./logOutput.js";
 import { homedir } from "os";
 import path from "path";
 import { access, mkdir } from "fs";
 import { readByStream } from "./../streams/read.js";
-import { remove } from "./../fs/delete.js";
+import { remove, removeDir } from "./../fs/delete.js";
 import { rename } from "./../fs/rename.js";
 import { makeDirectory } from "./../fs/mkdir.js";
 
@@ -80,7 +82,7 @@ const prompt = async (input) => {
 
     case "cd":
       try {
-        var cd = " ";
+        var cd = "";
 
         if (path.isAbsolute(commandArgs[1])) {
           cd = path.resolve(commandArgs[1]);
@@ -129,7 +131,22 @@ const prompt = async (input) => {
     case "rm":
       try {
         const remPath = path.join(__currentdir, commandArgs[1]);
+        if (await isFile(remPath)) {
         await remove(remPath);
+        }
+        else 
+        await removeDir(remPath);
+      } catch (err) {
+        console.error(err);
+      }
+      currentDirectory();
+      break;
+
+
+    case "rmdir":
+      try {
+        const remPath = path.join(__currentdir, commandArgs[1]);
+        await removeDir(remPath);
       } catch (err) {
         console.error(err);
       }
@@ -158,7 +175,7 @@ const prompt = async (input) => {
     case "q!":
       detect_exit();
   }
-  stdout.write("(づ ᴗ _ᴗ)づ>>> ");
+  await stdout.write("(づ ᴗ _ᴗ)づ>>> ");
 };
 
 const currentDirectory = async () => {

@@ -244,3 +244,12 @@ ls
 rm "file"
 mkdir folder
 rm folder
+ды
+ls
+ls
+cd c:\
+cd c:\
+ls
+ls
+cd "G:\Games"
+cd "G:\Games"

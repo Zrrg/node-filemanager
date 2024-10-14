@@ -86,6 +86,7 @@ const prompt = async (input) => {
       break;
 
     case "mkdir":
+      try {
       var newDir = " ";
       if (path.isAbsolute(commandArgs[1])) {
         newDir = path.resolve(commandArgs[1]);
@@ -94,6 +95,7 @@ const prompt = async (input) => {
       }
       await makeDirectory(newDir);
       currentDirectory();
+    } catch (err) {console.error(err);}
       break;
 
     case "up":
@@ -140,18 +142,26 @@ const prompt = async (input) => {
 
     case "cat":
     case "read":
-      const catPath = path.join(__currentdir, commandArgs[1]);
-      stdout.write("\n");
-      await readByStream(catPath);
-      currentDirectory();
+      try {
+        const catPath = path.join(__currentdir, commandArgs[1]);
+        stdout.write("\n");
+        await readByStream(catPath);
+        currentDirectory();
+      } catch (err) {
+        console.error(err);
+      }
       break;
 
     case "remove":
     case "delete":
     case "del":
     case "rm":
-      await filemanagerRm(__currentdir, commandArgs[1]);
-      currentDirectory();
+      try {
+        await filemanagerRm(__currentdir, commandArgs[1]);
+        currentDirectory();
+      } catch (err) {
+        console.error(err);
+      }
       break;
 
     case "rename":
@@ -168,14 +178,22 @@ const prompt = async (input) => {
 
     case "cp":
     case "copy":
-      await filemanagerCp(__currentdir, commandArgs[1], commandArgs[2]);
-      currentDirectory();
+      try {
+        await filemanagerCp(__currentdir, commandArgs[1], commandArgs[2]);
+        currentDirectory();
+      } catch (err) {
+        console.error(err);
+      }
       break;
 
     case "mv":
     case "move":
-      await filemanagerMv(__currentdir, commandArgs[1], commandArgs[2]);
-      currentDirectory();
+      try {
+        await filemanagerMv(__currentdir, commandArgs[1], commandArgs[2]);
+        currentDirectory();
+      } catch (err) {
+        console.error(err);
+      }
       break;
 
     case "eol":
@@ -214,8 +232,9 @@ const prompt = async (input) => {
 
     case "compress":
       try {
-        await compressBrotli(__currentdir, commandArgs[1])
-          .then(await filemanagerRm(__currentdir, commandArgs[1]));
+        await compressBrotli(__currentdir, commandArgs[1]).then(
+          await filemanagerRm(__currentdir, commandArgs[1])
+        );
       } catch (err) {
         console.error(COMPRESS_ERROR, err);
       }

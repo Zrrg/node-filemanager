@@ -915,3 +915,4 @@ ls
 hash fun.jpg
 ls
 cls
+cat

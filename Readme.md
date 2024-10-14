@@ -23,6 +23,7 @@ Or, if [arguments are not detected](https://github.com/npm/cli/issues/7375), it 
 
 
 ## Extra features
+- `add` can write sting in new file if string in quotes is provided as second argument.
 - Removing empty directories just with `rm` by distinguishing between files and directories with `isfile.js`.
 - Logging failed commands in `logOutput.js`, well originally I had bigger plans for this but don't want to break anything at this point.
 

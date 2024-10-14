@@ -9,9 +9,6 @@ export const parseArgs = () => {
         
     }
 
-    // for (const [key, value] of Object.entries(output)) {
-    //     console.log(`${key} is ${value}`);
-    // }
 
 
     const result = Object.entries(output)

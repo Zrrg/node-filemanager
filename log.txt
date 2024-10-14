@@ -719,3 +719,282 @@ ls
 
 
 
+cpu
+g:\
+cd G:\
+cd G:\
+cd G:
+cd G:
+cd 
+cd 
+cd "G:\"
+cd "G:\"
+ls
+ls
+cd c:
+cd c:
+cd C:
+cd C:
+cd C:\
+cd C:\
+cd C:\
+cd C:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+ды
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+ls
+ls
+cd g:
+cd g:
+cd g:\
+cd g:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+exit
+exit
+exit
+exit
+exit
+exit
+
+ls
+ls
+cd c:\
+cd c:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+ls
+help
+ls
+cd bruh
+ls
+cp aa dd
+ls
+cpuinfo

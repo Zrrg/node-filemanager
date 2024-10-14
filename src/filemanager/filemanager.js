@@ -10,19 +10,28 @@ import { create } from "./../fs/create.js";
 import { list } from "./../fs/list.js";
 
 import { logOutput } from "./logOutput.js";
-import { homedir } from "os";
+import os from "os";
 import path from "path";
 import { access, mkdir } from "fs";
 import { readByStream } from "./../streams/read.js";
 import { rename } from "./../fs/rename.js";
 import { makeDirectory } from "./../fs/mkdir.js";
-import { copy } from "../fs/copy.js";
 import { filemanagerCp } from "./cp.js";
 import { filemanagerRm } from "./rm.js";
+import { filemanagerMv } from "./mv.js";
 
 const { stdin, stdout } = process;
 
-var __currentdir = homedir();
+const cpus = os.cpus();
+
+const cpuinfo = () => {
+  cpus.forEach((cpu) => {
+    console.log(`Model: ${cpu.model} speed: ${(cpu.speed / 1000).toFixed(2)} GHz`);
+  });
+};
+
+const homedir = os.homedir();
+var __currentdir = homedir;
 
 const getUsername = async () => {
   for (const i = 2; i < process.argv.length; i++) {
@@ -157,10 +166,58 @@ const prompt = async (input) => {
 
     case "mv":
     case "move":
-    // todo check if copied then delete
-      await filemanagerCp(__currentdir, commandArgs[1], commandArgs[2]);
-      await filemanagerRm(__currentdir, commandArgs[1]);
+      // try {
+      //   // todo check if copied then delete
+      //   const isCopied = await filemanagerCp(
+      //     __currentdir,
+      //     commandArgs[1],
+      //     commandArgs[2]
+      //   );
+      //   if (isCopied) {
+      //     await filemanagerRm(__currentdir, commandArgs[1]);
+      //   } else {
+      //     console.log("Error: File could not be copied.");
+      //   }
+      //   await currentDirectory();
+      // } catch (error) {
+      //   console.error(FS_ERROR, error);
+      // }
+      await filemanagerMv(__currentdir, commandArgs[1], commandArgs[2]);
       currentDirectory();
+      break;
+
+    case "eol":
+      console.log(`Default system EOL is ${JSON.stringify(os.EOL)}`);
+      currentDirectory();
+      break;
+
+    case "cpuinfo":
+      console.log(`CPU Info: `);
+      cpuinfo();
+      currentDirectory();
+      break;
+
+    case "homedir":
+    case "home":
+      console.log(`User home directory: ${homedir}`);
+      currentDirectory();
+      break;
+
+    case "userinfo":
+      const userinfo = os.userInfo();
+      console.log(`System user name: ${userinfo.username}`);
+      currentDirectory();
+      break;
+
+    case "help":
+    case "?":
+      {
+        console.log(
+          "Commands: ls, list, dir; mkdir; up, back; cd; add, touch, write, w, cat, read; rm , del, remove, delete; rn, rename; cp, copy; mv, move; eol; cpuinfo; home, homedir; userinfo;  help; .exit, exit, quit, q! "
+        );
+      }
+      currentDirectory();
+
       break;
 
     default:
@@ -172,11 +229,13 @@ const prompt = async (input) => {
     case "quit":
     case "q!":
       detect_exit();
+      break;
   }
 };
 
 const currentDirectory = async () => {
   console.log("You are currently in", __currentdir);
+  stdout.write(">>> ");
 };
 
 const waitForInput = async () => {
@@ -198,5 +257,5 @@ const username = await getUsername();
 console.log(PROMPT_MESSAGE, username + "!");
 currentDirectory();
 
-stdout.write("ヾ(・ω・*)>>> ");
+stdout.write('ヾ(・ω・*) Type "help" to get available commands >>> ');
 waitForInput();

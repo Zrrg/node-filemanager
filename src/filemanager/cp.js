@@ -19,5 +19,6 @@ try {
       }
 
     await copy(src, dest)
+
   } catch (err) {console.error(err);}
 }

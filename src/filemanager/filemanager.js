@@ -166,22 +166,6 @@ const prompt = async (input) => {
 
     case "mv":
     case "move":
-      // try {
-      //   // todo check if copied then delete
-      //   const isCopied = await filemanagerCp(
-      //     __currentdir,
-      //     commandArgs[1],
-      //     commandArgs[2]
-      //   );
-      //   if (isCopied) {
-      //     await filemanagerRm(__currentdir, commandArgs[1]);
-      //   } else {
-      //     console.log("Error: File could not be copied.");
-      //   }
-      //   await currentDirectory();
-      // } catch (error) {
-      //   console.error(FS_ERROR, error);
-      // }
       await filemanagerMv(__currentdir, commandArgs[1], commandArgs[2]);
       currentDirectory();
       break;

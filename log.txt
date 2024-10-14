@@ -908,3 +908,10 @@ cpuinfo
 okay
 help
 help
+ls
+cd ..
+cd g:\
+ls
+hash fun.jpg
+ls
+cls

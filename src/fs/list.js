@@ -55,7 +55,3 @@ export const list = async (dir) => {
             console.error(FS_ERROR, error);
     }
 };
-
-
-
-//await list(dir);

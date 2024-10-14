@@ -13,12 +13,18 @@ Or, if [arguments are not detected](https://github.com/npm/cli/issues/7375), it 
 
 ## Commands
 
-`ls, list, dir / mkdir / up, back / cd / add, touch, write, w / cat, read / rm , del, remove, delete / rn, rename / cp, copy / mv, move / eol / cpuinfo / home, homedir / userinfo /  help, ? / .exit, exit, quit, q! `
+`ls, list, dir / mkdir / up, back / cd / add, touch, write, w / cat, read / rm , del, remove, delete / rn, rename / cp, copy / mv, move / eol / cpuinfo / home, homedir / userinfo / arch, architecture / hash / compress / decompress /  help, ? / .exit, exit, quit, q! `
 
 ## Note
 
-- Would be cool if your terminal supports utf-8, if no there might be question marks.
+- Would be cool if your terminal supported utf-8, if no there might be question marks in output.
 - I had to use `currentDirectory();` before each break in switch statement, because if i put it in function after all statments, it shows old folder (async so async). If there are more elegant solution for my case, please let me know.
+- `compress` command deletes original file.
+
+
+## Extra features
+- Removing empty directories just with `rm` by distinguishing between files and directories with `isfile.js`.
+- Logging failed commands in `logOutput.js`, well originally I had bigger plans for this but don't want to break anything at this point.
 
 ## Basic Scope
 - General
@@ -43,12 +49,12 @@ Or, if [arguments are not detected](https://github.com/npm/cli/issues/7375), it 
 ✅    - **+10** Get host machine CPUs info (overall amount of CPUS plus model and clock rate (in GHz) for each of them)
 ✅    - **+6** Get home directory
 ✅    - **+6** Get current *system user name* (Do not confuse with the username that is set when the application starts)
-    - **+6** Get CPU architecture for which Node.js binary has compiled
+✅   - **+6** Get CPU architecture for which Node.js binary has compiled
 - Hash calculation implemented properly
-    - **+20** Calculate hash for file 
+✅   - **+20** Calculate hash for file 
 - Compress and decompress operations
-    - **+20** Compress file (using Brotli algorithm)
-    - **+20** Decompress file (using Brotli algorithm)
+✅   - **+20** Compress file (using Brotli algorithm)
+✅   - **+20** Decompress file (using Brotli algorithm)
 
 ## Advanced Scope
 

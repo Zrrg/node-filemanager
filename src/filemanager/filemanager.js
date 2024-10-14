@@ -4,6 +4,7 @@ import {
   EXIT_MESSAGE1,
   EXIT_MESSAGE2,
   INVALID_INPUT,
+  COMPRESS_ERROR,
   GENERIC_ERROR,
   FS_ERROR,
 } from "../constants/global.js";
@@ -17,15 +18,14 @@ import { list } from "./../fs/list.js";
 import { rename } from "./../fs/rename.js";
 import { makeDirectory } from "./../fs/mkdir.js";
 
-
-
 import { logOutput } from "./logOutput.js";
 import { filemanagerCp } from "./cp.js";
 import { filemanagerRm } from "./rm.js";
 import { filemanagerMv } from "./mv.js";
 
 import { readByStream } from "./../streams/read.js";
-import { calculateHash } from "./../hash/calcHash.js"
+import { calculateHash } from "./../hash/calcHash.js";
+import { compressBrotli, decompressBrotli } from "../zip/compress.js";
 
 const { stdin, stdout } = process;
 
@@ -207,18 +207,36 @@ const prompt = async (input) => {
       currentDirectory();
       break;
 
-
     case "hash":
-       calculateHash(__currentdir, commandArgs[1]);
-       currentDirectory();
+      calculateHash(__currentdir, commandArgs[1]);
+      currentDirectory();
       break;
 
+    case "compress":
+      try {
+        await compressBrotli(__currentdir, commandArgs[1])
+          .then(await filemanagerRm(__currentdir, commandArgs[1]));
+      } catch (err) {
+        console.error(COMPRESS_ERROR, err);
+      }
+      currentDirectory();
+
+      break;
+
+    case "decompress":
+      try {
+        await decompressBrotli(__currentdir, commandArgs[1]);
+        currentDirectory();
+      } catch (err) {
+        console.error(COMPRESS_ERROR, err);
+      }
+      break;
 
     case "help":
     case "?":
       {
         console.log(
-          "Commands: ls, list, dir / mkdir / up, back / cd / add, touch, write, w / cat, read / rm , del, remove, delete / rn, rename / cp, copy / mv, move / eol / cpuinfo / home, homedir / userinfo /  help, ? / .exit, exit, quit, q! "
+          "Commands: ls, list, dir / mkdir / up, back / cd / add, touch, write, w / cat, read / rm , del, remove, delete / rn, rename / cp, copy / mv, move / eol / cpuinfo / home, homedir / userinfo / arch, architecture / hash / compress / decompress /  help, ? / .exit, exit, quit, q! "
         );
       }
       currentDirectory();

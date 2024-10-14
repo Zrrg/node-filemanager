@@ -2,7 +2,7 @@
 import {readdir} from 'fs/promises'
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import {  FS_ERROR } from '../variables/global.js';
+import {  FS_ERROR } from '../constants/global.js';
 import fs from 'fs';
 import util from 'util';
 

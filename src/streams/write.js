@@ -1,5 +1,5 @@
 import fs from 'fs'
-import {GENERIC_ERROR, STREAM_ERRROR} from './../variables/global.js'
+import {GENERIC_ERROR, STREAM_ERRROR} from '../constants/global.js'
 
 export const writeBySteam = async (destination, args) => {
 

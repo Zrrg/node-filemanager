@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { FS_ERROR } from '../variables/global.js';
+import { FS_ERROR } from '../constants/global.js';
 
 
 export const create = async (filePath, content) => {

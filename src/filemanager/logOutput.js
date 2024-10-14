@@ -1,5 +1,5 @@
 import { writeBySteam } from "./../streams/write.js";
-import { LOG_PATH } from "../variables/global.js";
+import { LOG_PATH } from "../constants/global.js";
 const { stdin, stdout } = process;
 
 export const logOutput = async (message) => {

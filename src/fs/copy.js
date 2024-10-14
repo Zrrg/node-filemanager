@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { FS_ERROR } from '../variables/global.js'
+import { FS_ERROR } from '../constants/global.js'
   
 // fs.cp(src, dest[, options], callback) = Asynchronously copies the entire directory structure from src to dest, including subdirectories and files.
 // throws error if source don't exist by default

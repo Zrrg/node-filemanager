@@ -1,24 +1,30 @@
 import {
+  INIT_MESSAGE,
   PROMPT_MESSAGE,
   EXIT_MESSAGE1,
   EXIT_MESSAGE2,
   INVALID_INPUT,
   GENERIC_ERROR,
   FS_ERROR,
-} from "../variables/global.js";
+} from "../constants/global.js";
+
+import os from "node:os";
+import { access } from "fs";
+import path from "path";
+
 import { create } from "./../fs/create.js";
 import { list } from "./../fs/list.js";
-
-import { logOutput } from "./logOutput.js";
-import os, { arch } from "os";
-import path from "path";
-import { access, mkdir } from "fs";
-import { readByStream } from "./../streams/read.js";
 import { rename } from "./../fs/rename.js";
 import { makeDirectory } from "./../fs/mkdir.js";
+
+
+
+import { logOutput } from "./logOutput.js";
 import { filemanagerCp } from "./cp.js";
 import { filemanagerRm } from "./rm.js";
 import { filemanagerMv } from "./mv.js";
+
+import { readByStream } from "./../streams/read.js";
 import { calculateHash } from "./../hash/calcHash.js"
 
 const { stdin, stdout } = process;
@@ -256,5 +262,5 @@ const username = await getUsername();
 console.log(PROMPT_MESSAGE, username + "!");
 currentDirectory();
 
-stdout.write('ヾ(・ω・*) Type "help" to get available commands >>> ');
+stdout.write(INIT_MESSAGE);
 waitForInput();

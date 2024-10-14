@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 import fs from 'node:fs/promises';
 
-import { FS_ERROR } from './../variables/global.js'
+import { FS_ERROR } from '../constants/global.js'
 
 export const filemanagerMv =  async (currentDir, src, dest) => {
   try {

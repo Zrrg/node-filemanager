@@ -1,5 +1,5 @@
 import fs, { ReadStream } from 'fs'
-import { STREAM_ERRROR } from '../variables/global.js';
+import { STREAM_ERRROR } from '../constants/global.js';
 
 //const file = 'src/streams/files/fileToRead.txt'
 

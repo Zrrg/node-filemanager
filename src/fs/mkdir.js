@@ -1,6 +1,6 @@
 import {mkdir} from 'fs/promises'
 import {join} from 'path'
-import {FS_ERROR} from './../variables/global.js'
+import {FS_ERROR} from '../constants/global.js'
 
 export const makeDirectory = async(newDir) => {
     mkdir(newDir)

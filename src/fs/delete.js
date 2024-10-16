@@ -1,17 +1,16 @@
 import fs from 'fs'
-const path = './src/fs/files/'
-const file = 'fileToRemove.txt'
+import { FS_ERROR } from '../constants/global.js';
 
 
-
-
-const remove = async () => {
-    fs.unlink(path + file, (err) => {
-        if (err) {
-            console.error("FS operation failed", err)
-        } else
-            console.log("Removed")
-    })
+export const remove = async (delFilePath) => {
+    fs.promises.unlink(delFilePath)
+        .then(() => console.log(`File has been removed.`))
+        .catch((err) => console.error(FS_ERROR, err))
 };
 
-await remove();
+
+export const removeDir = async (delFilePath) => {
+    fs.promises.rmdir(delFilePath)
+        .then(() => console.log(`Directory has been removed.`))
+        .catch((err) => console.error(FS_ERROR, err))
+};

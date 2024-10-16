@@ -1,0 +1,4 @@
+.vscode
+.log.txt
+./src/fs/files_copy
+./src/fs/files

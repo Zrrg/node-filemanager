@@ -1,17 +1,20 @@
 import fs from 'fs'
-const path = './src/fs/files/'
-const oldname = 'wrongFilename.txt'
-const newname = 'properFilename.md'
+import { FS_ERROR } from '../constants/global.js';
+import { checkAccess } from '../fs/access.js'
 
 
-const rename = async () => {
-    fs.rename( path + oldname, path + newname, (err) =>{
-        if (err) {
-            console.error('FS operation failed', err)
-        } else {
-            console.log('Renamed')
-        }
-    })
-};
+export const rename = async (oldFilePath, newFilePath) => {
+     const fileExist = await checkAccess(newFilePath);
+    
+     if (fileExist) {
+         throw new Error("File exists");
+     }
 
-await rename();
+    try {
+        await fs.promises.rename(oldFilePath, newFilePath)
+        console.log(`${oldFilePath} has been renamed to ${newFilePath}`);
+    } catch (err) {
+            console.error(FS_ERROR)
+    }
+}
+        

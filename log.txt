@@ -1,0 +1,918 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+rm asdfdsf
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+cd "whatever it was"
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat love
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+cat test.cpp
+touch file
+rm file
+touch file
+touch "file file"
+cat file file
+cat "file file"
+rn "file file" "file space"
+rm "file space"
+rm "file file"
+
+
+
+ls
+rm file
+touch "file"
+ls
+rm "file"
+mkdir folder
+rm folder
+ды
+ls
+ls
+cd c:\
+cd c:\
+ls
+ls
+cd "G:\Games"
+cd "G:\Games"
+ls
+rm file.txt
+add file.txt aaaa
+add "file text.txt"
+ls
+cd ..
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd .
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+cd c:\sdfds
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+mkdir bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+cd bruh
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+mkdir eh
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+touch file
+rm file
+touch file
+cp file file2
+rm file2
+rim file
+rm file
+rm file
+
+
+
+rm a
+rm a
+rm a
+rm b
+rm b
+rm b
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd bruh
+cd bruh
+cd bruh
+touch ababa
+touch ababa
+touch ababa
+ls
+ls
+ls
+cp ababa bebebe
+cp ababa bebebe
+cp ababa bebebe
+cd ..
+ls
+cd bruh
+ls
+cp ababa bebebe
+ls
+cd ababa c:\bebe
+cd ..
+ls
+cat bebe
+cd ..
+cat bebe
+cd bruh
+ls
+cp fsadf
+cp gfdg fdg
+cp "" ""
+ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cpu
+g:\
+cd G:\
+cd G:\
+cd G:
+cd G:
+cd 
+cd 
+cd "G:\"
+cd "G:\"
+ls
+ls
+cd c:
+cd c:
+cd C:
+cd C:
+cd C:\
+cd C:\
+cd C:\
+cd C:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+ды
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+ls
+ls
+cd g:
+cd g:
+cd g:\
+cd g:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+exit
+exit
+exit
+exit
+exit
+exit
+
+ls
+ls
+cd c:\
+cd c:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+cd h:\
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd d:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+cd c:
+ls
+help
+ls
+cd bruh
+ls
+cp aa dd
+ls
+cpuinfo
+okay
+help
+help
+ls
+cd ..
+cd g:\
+ls
+hash fun.jpg
+ls
+cls
+cat
